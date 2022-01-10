@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import javax.security.auth.login.AccountNotFoundException;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +20,12 @@ public class TestController {
 		log.info("hello world logging: INFO -- JSON");
 		log.warn("hello world logging: WARN -- JSON");
 		return "hello world";
+	}
+	
+	@GetMapping("exception")
+	public void exception() throws AccountNotFoundException {
+//		PrintSt
+		new AccountNotFoundException().printStackTrace();
 	}
 
 }
