@@ -15,10 +15,19 @@ public class TestController {
 
 	@GetMapping("hello")
 	public String test() {
+		String linetest = "Error parsing HTTP request header \n" +
+				  "at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419) ~[tomcat-embed-core-9.0.55.jar!/:na] \n" + 
+				  "at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.55.jar!/:na] \n" +
+				  "at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.55.jar!/:na] \n" + 
+				  "at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]";
+		
 		log.debug("hello world logging: DEBUG -- JSON");
 		log.error("hello world logging: ERROR -- JSON");
-		log.info("hello world logging: INFO -- JSON");
+		//log.info("hello world logging: INFO -- JSON");
 		log.warn("hello world logging: WARN -- JSON");
+		
+		log.info(linetest);
+		
 		return "hello world";
 	}
 	
